@@ -16,7 +16,7 @@ export default class WelcomeScreen extends Component {
   userLogin = (emailId, password)=>{
     firebase.auth().signInWithEmailAndPassword(emailId, password)
     .then(()=>{
-      return Alert.alert("Successfully Login")
+      return Alert.alert(Ingreso Exitoso")
     })
     .catch((error)=> {
       var errorCode = error.code;
@@ -28,7 +28,7 @@ export default class WelcomeScreen extends Component {
   userSignUp = (emailId, password) =>{
     firebase.auth().createUserWithEmailAndPassword(emailId, password)
     .then((response)=>{
-      return Alert.alert("User Added Successfully")
+      return Alert.alert("Usuario agregado exitosamente")
     })
     .catch(function(error) {
       var errorCode = error.code;
@@ -40,7 +40,7 @@ export default class WelcomeScreen extends Component {
   // userSignUp = () =>{
   //   firebase.auth().createUserWithEmailAndPassword(emailId, password)
   //   .then((response)=>{
-  //     return Alert.alert("User Added Successfully")
+  //     return Alert.alert("Usuario agregado exitosamente")
   //   })
   //   .catch(function(error) {
   //     var errorCode = error.code;
@@ -52,7 +52,7 @@ export default class WelcomeScreen extends Component {
   // userSignUp = (emailId, password) =>{
   //   firebase.auth().(emailId, password)
   //   .then((response)=>{
-  //     return Alert.alert("User Added Successfully")
+  //     return Alert.alert("Usuario agregado exitosamente")
   //   })
   //   .catch(function(error) {
   //     var errorCode = error.code;
@@ -64,7 +64,7 @@ export default class WelcomeScreen extends Component {
   // userSignUp = (emailId, password) =>{
   //   firebase.auth().createUserWithEmailAndPassword()
   //   .then((response)=>{
-  //     return Alert.alert("User Added Successfully")
+  //     return Alert.alert("Usuario agregado exitosamente")
   //   })
   //   .catch(function(error) {
   //     var errorCode = error.code;
@@ -79,7 +79,7 @@ export default class WelcomeScreen extends Component {
       <View style={styles.container}>
         <View style={styles.profileContainer}>
           <DoctorAnimation/>
-          <Text style={styles.title}>LOGIN SCREEN</Text>
+          <Text style={styles.title}>PANTALLA DE INGRESO</Text>
         </View>
         <View style={styles.buttonContainer}>
           <TextInput
@@ -97,7 +97,7 @@ export default class WelcomeScreen extends Component {
         <TextInput
           style={styles.loginBox}
           secureTextEntry = {true}
-          placeholder="password"
+          placeholder="contraseña"
           placeholderTextColor = "#ffff"
           onChangeText={(text)=>{
             this.setState({
@@ -109,13 +109,13 @@ export default class WelcomeScreen extends Component {
             style={[styles.button,{marginBottom:20, marginTop:20}]}
             onPress = {()=>{this.userLogin(this.state.emailId, this.state.password)}}
             >
-            <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>Ingresar</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
             onPress={()=>{this.userSignUp(this.state.emailId, this.state.password)}}
             >
-            <Text style={styles.buttonText}>SignUp</Text>
+            <Text style={styles.buttonText}>Registrarse</Text>
           </TouchableOpacity>
         </View>
       </View>
